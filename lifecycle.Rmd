@@ -96,10 +96,8 @@ These three different views of usethis's evolution are all useful for different 
 
 Formally, an R package version is a sequence of at least two integers separated by either `.` or `-`.
 For example, `1.0` and `0.9.1-10` are valid versions, but `1` and `1.0-devel` are not.
-Base R offers the `utils::package_version()`[^lifecycle-2] function to parse a package version string into a proper S3 class by the same name.
+Base R offers the `package_version()` function to parse a package version string into a proper S3 class by the same name.
 This class makes it easier to do things like compare versions.
-
-[^lifecycle-2]: We can call `package_version()` directly here, but in package code, you should use the `utils::package_version()` form and list the utils package in `Imports`.
 
 ```{r}
 #| error: true
@@ -337,7 +335,7 @@ This supports a lifestyle where a user's default package library is managed in t
 But any project that has a specific, higher requirement for reproducibility is managed with renv.
 This keeps package updates triggered by work in project A from breaking the code in project B and also helps with collaboration and deployment.
 
-We suspect that package-specific libraries and tools like renv are currently under-utilized in the R world.
+We suspect that project-specific libraries and tools like renv are currently under-utilized in the R world.
 That is, lots of R users still use just one package library.
 Therefore, package maintainers still need to exercise considerable caution and care when they introduce breaking changes, regardless of what's happening with the version number.
 In @sec-lifecycle-stages-and-package, we describe how tidyverse packages approach this, supported by tools in the lifecycle package.
